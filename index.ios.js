@@ -28,9 +28,7 @@ class eCommerce extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.loginText}>
-          eCommerce
-        </Text>
+        {this.login()}
         {this.emailInput()}
         {this.passwordInput()}
         {this.loginButton()}
@@ -38,6 +36,12 @@ class eCommerce extends Component {
         {this.linkToForgotPassword()}
         {this.linkToBrowse()}
       </View>
+    );
+  }
+  //LOGO
+  login() {
+    return(
+      <Text style={styles.loginText}>eCommerce</Text>
     );
   }
   //Email Input
