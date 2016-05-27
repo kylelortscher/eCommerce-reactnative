@@ -12,12 +12,14 @@ import Login from './components/login.js'
 import Signup from './components/signup.js'
 import ForgotPassword from './components/forgotpassword.js'
 import Index from './components/index.js'
+import HomePage from './components/homepage.js'
 
 var ROUTES = {
   login: Login,
   signup: Signup,
   forgotpassword: ForgotPassword,
-  index: Index
+  index: Index,
+  homepage: HomePage
 };
 
 module.exports = React.createClass({
@@ -29,7 +31,7 @@ module.exports = React.createClass({
     return(
       <Navigator
         style={styles.container}
-        initialRoute={{name: 'login'}}
+        initialRoute={{name: 'homepage'}}
         renderScene={this.renderScene}
         configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
         />
