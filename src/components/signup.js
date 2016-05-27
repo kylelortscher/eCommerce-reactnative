@@ -65,16 +65,21 @@ module.exports = React.createClass({
       value={this.state.passwordConfirmation}
       secureTextEntry={true}
       onChangeText={(text) => this.setState({passwordConfirmation: text})}
-      placeholder="Password Confirmatio">
+      placeholder="Password Confirmation">
       </TextInput>
     );
   },
   signUpButton() {
     return(
-      <TouchableHighlight style={styles.signUpButton} onPress={() => this.props.navigator.push({name: 'index'})}>
+      <TouchableHighlight style={styles.signUpButton} onPress={this.onSignUpPress()}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableHighlight>
     );
+  },
+  onSignUpPress() {
+    if(this.state.password !== this.state.passwordConfirmation) {
+      return this.setState({errorMessage: 'Your passwords do not match'});
+    }
   },
   loginLink() {
     return(

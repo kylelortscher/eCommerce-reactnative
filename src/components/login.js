@@ -8,7 +8,8 @@ import {
   TextInput,
   View,
   TouchableHighlight,
-  Navigator
+  Navigator,
+  AlertIOS
 } from 'react-native';
 
 module.exports = React.createClass({
@@ -45,7 +46,7 @@ module.exports = React.createClass({
       <TextInput
       style={styles.textInput}
       value={this.state.email}
-      keyboardType="url"
+      keyboardType='email-address'
       onChangeText={(text) => this.setState({email: text})}
       placeholder="  Email Address">
       </TextInput>
@@ -63,13 +64,33 @@ module.exports = React.createClass({
       </TextInput>
     );
   },
+  errorText() {
+    return(
+      <Text style={styles.errorText}>{this.state.errorMessage}</Text>
+    );
+  },
   //Login Button
   loginButton() {
     return(
-      <TouchableHighlight style={styles.loginButton} onPress={() => this.props.navigator.push({name: 'index'})}>
+      <TouchableHighlight style={styles.loginButton} onPress={() => this.loginButtonPress()}>
         <Text style={styles.loginButtonText}>Log In</Text>
       </TouchableHighlight>
     );
+  },
+  loginButtonPress() {
+    if(this.state.password == '') {
+      this.setState({errorMessage: 'Password is empty'});
+      return AlertIOS.alert(
+          'Enter A Password',
+          'Your Password Can\'t be blank!'
+      );
+    }
+    if(this.state.email == '') {
+      return AlertIOS.alert(
+        'Enter An Email!',
+        'Your Email Can\' be blank'
+      );
+    }
   },
   //Link To Signup
   linkToSignUp() {
@@ -118,6 +139,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     backgroundColor: 'white'
+  },
+  errorMessages: {
+    color: 'red',
+    fontSize: 20
   },
   loginButton: {
     height: 50,
