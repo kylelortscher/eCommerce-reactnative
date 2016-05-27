@@ -29,7 +29,7 @@ class eCommerce extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.loginText}>
-          Log Into React eCommerce
+          eCommerce
         </Text>
         {this.emailInput()}
         {this.passwordInput()}
@@ -90,8 +90,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#3b5998',
   },
   loginText: {
-    fontSize: 22,
-    margin: 10
+    fontSize: 32,
+    margin: 10,
+    fontWeight: '900',
+    color: '#ecf0f1'
   },
   textInput: {
     height: 40,
