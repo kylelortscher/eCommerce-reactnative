@@ -34,7 +34,7 @@ module.exports = React.createClass({
   },
   logo() {
     return(
-      <Text style={styles.loginText}>Signup</Text>
+      <Text style={styles.hello}>Signup</Text>
     );
   },
   emailInput() {
@@ -57,8 +57,8 @@ module.exports = React.createClass({
   },
   signUpButton() {
     return(
-      <TouchableHighlight style={styles.loginButton} onPress={() => this.props.navigator.push({name: 'index'})}>
-        <Text style={styles.loginButtonText}>Sign Up</Text>
+      <TouchableHighlight style={styles.signUpButton} onPress={() => this.props.navigator.push({name: 'index'})}>
+        <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableHighlight>
     );
   },
@@ -79,9 +79,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#3b5998',
   },
   hello: {
-    fontSize: 23,
+    fontSize: 32,
+    margin: 10,
     fontWeight: '900',
-    textAlign: 'center'
+    color: '#ecf0f1'
+  },
+  signUpButton: {
+    height: 50,
+    width: 150,
+    borderRadius: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50'
+  },
+  signUpButtonText: {
+    color: 'white',
+    fontSize: 16,
+    alignItems: 'center'
   },
   textInput: {
     height: 40,
@@ -90,6 +104,13 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     backgroundColor: 'white'
+  },
+  linkToBrowse: {
+    fontSize: 13,
+    textDecorationLine: 'underline',
+    color: 'white',
+    alignItems: 'center',
+    marginTop: 10
   },
   loginText: {
     fontSize: 23,
