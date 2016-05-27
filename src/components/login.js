@@ -42,14 +42,23 @@ module.exports = React.createClass({
   //Email Input
   emailInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Email Address">
+      <TextInput
+      style={styles.textInput}
+      value={this.state.email}
+      onChangeText={(text) => this.setState({email: text})}
+      placeholder="  Email Address">
       </TextInput>
     );
   },
   //Password
   passwordInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Password">
+      <TextInput
+      style={styles.textInput}
+      secureTextEntry={true}
+      onChangeText={(text) => this.setState({password: text})}
+      value={this.state.password}
+      placeholder="  Password">
       </TextInput>
     );
   },

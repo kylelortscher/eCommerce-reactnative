@@ -39,19 +39,33 @@ module.exports = React.createClass({
   },
   emailInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Email Address">
+      <TextInput
+      style={styles.textInput}
+      value={this.state.email}
+      onChangeText={(text) => this.setState({email: text})}
+      placeholder="Email Address">
       </TextInput>
     );
   },
   passwordInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.password} placeholder="  Password">
+      <TextInput
+      style={styles.textInput}
+      value={this.state.password}
+      secureTextEntry={true}
+      onChangeText={(text) => this.setState({password: text})}
+      placeholder="Password">
       </TextInput>
     );
   },
   passwordConfirmationInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.passwordConfirmation} placeholder="  Password Confirmation">
+      <TextInput
+      style={styles.textInput}
+      value={this.state.passwordConfirmation}
+      secureTextEntry={true}
+      onChangeText={(text) => this.setState({passwordConfirmation: text})}
+      placeholder="Password Confirmatio">
       </TextInput>
     );
   },
