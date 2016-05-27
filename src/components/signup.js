@@ -78,6 +78,14 @@ module.exports = React.createClass({
     );
   },
   onSignUpPress() {
+    if(this.state.email == '') {
+      return(
+        AlertIOS.alert(
+            'Empty Email',
+            'Please enter a email!'
+        )
+      )
+    }
     if(this.state.password == '') {
       return(
         AlertIOS.alert(
@@ -86,8 +94,33 @@ module.exports = React.createClass({
         )
       )
     }
+    if(this.state.passwordConfirmation == '') {
+      return(
+          AlertIOS.alert(
+              'Empty Password Confirmation',
+              'Please enter a password confirmation!'
+          )
+      )
+    }
+    if(this.state.password !== this.state.passwordConfirmation) {
+      return(
+          AlertIOS.alert(
+            'Error',
+            'Passwords Don\'t Match!'
+          )
+      )
+    }
+    if(this.state.password > 20 || this.state.password < 6) {
+      return(
+       AlertIOS.alert(
+           'Error',
+           'Password Must Be Between 6 and 20 Characters'
+       )
+      )
+    }
+
     return(
-        () => this.props.navigator.push({name: 'homepage'})
+        this.props.navigator.push({name: 'homepage'})
     );
   },
   loginLink() {

@@ -37,7 +37,7 @@ module.exports = React.createClass({
   //LOGO
   logo() {
     return(
-      <Text style={styles.loginText}>eCommerce</Text>
+      <Text style={styles.loginText}>login</Text>
     );
   },
   //Email Input
@@ -91,7 +91,23 @@ module.exports = React.createClass({
         'Your Email Can\' be blank'
       );
     }
+    //TODO Setup With Actual API Testing This Out Working Well With RequestBin
+    fetch('http://requestb.in/1j7094j1', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    });
+    return(
+        this.props.navigator.push({name: 'homepage'})
+    )
   },
+
   //Link To Signup
   linkToSignUp() {
     return(
