@@ -25,7 +25,7 @@ module.exports = React.createClass({
   },
   logo() {
     return(
-      <Text style={styles.loginText}>Index</Text>
+      <Text style={styles.loginText}>ForgotPassword</Text>
     );
   }
 });

@@ -7,7 +7,8 @@ import {
   Text,
   TextInput,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  Navigator
 } from 'react-native';
 
 module.exports = React.createClass({
@@ -55,7 +56,7 @@ module.exports = React.createClass({
   //Login Button
   loginButton() {
     return(
-      <TouchableHighlight style={styles.loginButton}>
+      <TouchableHighlight style={styles.loginButton} onPress={() => this.props.navigator.push({name: 'index'})}>
         <Text style={styles.loginButtonText}>Log In</Text>
       </TouchableHighlight>
     );
@@ -63,7 +64,7 @@ module.exports = React.createClass({
   //Link To Signup
   linkToSignUp() {
     return(
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => this.props.navigator.push({name: 'signup'})}>
         <Text style={styles.linkToBrowse}>Sign Up!</Text>
       </TouchableHighlight>
     );
@@ -71,7 +72,7 @@ module.exports = React.createClass({
   //Link To ForgotPassword
   linkToForgotPassword() {
     return(
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => this.props.navigator.push({name: 'forgotpassword'})}>
         <Text style={styles.linkToBrowse}>Forgot Password</Text>
       </TouchableHighlight>
     );
@@ -80,7 +81,7 @@ module.exports = React.createClass({
   //Link To Browse
   linkToBrowse() {
     return(
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => this.props.navigator.push({name: 'index'})}>
         <Text style={styles.linkToBrowse}>Just Browse</Text>
       </TouchableHighlight>
     );
