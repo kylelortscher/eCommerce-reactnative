@@ -6,7 +6,8 @@ import {
   Text,
   TextInput,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  AlertIOS
 } from 'react-native';
 
 import Login from '../components/login'
@@ -71,21 +72,34 @@ module.exports = React.createClass({
   },
   signUpButton() {
     return(
-      <TouchableHighlight style={styles.signUpButton} onPress={this.onSignUpPress()}>
+      <TouchableHighlight style={styles.signUpButton} onPress={() => this.onSignUpPress()}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableHighlight>
     );
   },
   onSignUpPress() {
-    if(this.state.password !== this.state.passwordConfirmation) {
-      return this.setState({errorMessage: 'Your passwords do not match'});
+    if(this.state.password == '') {
+      return(
+        AlertIOS.alert(
+          'Empty Password',
+          'Please enter a password!'
+        )
+      )
     }
+    return(
+        () => this.props.navigator.push({name: 'homepage'})
+    );
   },
   loginLink() {
     return(
-        <TouchableHighlight onPress={() => this.props.navigator.push({name: 'login'})}>
+        <TouchableHighlight onPress={this.onLoginLinkPress()}>
           <Text style={styles.linkToBrowse}>Log In!</Text>
         </TouchableHighlight>
+    );
+  },
+  onLoginLinkPress() {
+    return(
+        () => this.props.navigator.push({name: 'login'})
     );
   }
 });
