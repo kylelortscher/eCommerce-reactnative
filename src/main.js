@@ -9,9 +9,11 @@ import {
 } from 'react-native';
 
 import Login from './components/login.js'
+import Signup from './components/signup.js'
 
 var ROUTES = {
-  login: Login
+  login: Login,
+  signup: Signup
 };
 
 module.exports = React.createClass({
@@ -23,7 +25,7 @@ module.exports = React.createClass({
     return(
       <Navigator
         style={styles.container}
-        initialRoute={{name: 'login'}}
+        initialRoute={{name: 'signup'}}
         renderScene={this.renderScene}
         configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
         />

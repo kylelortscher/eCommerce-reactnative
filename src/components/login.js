@@ -13,7 +13,7 @@ import {
 module.exports = React.createClass({
   getInitialState() {
     return {
-      username: '',
+      email: '',
       password: '',
       errorMessage: ''
     };
@@ -22,7 +22,7 @@ module.exports = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-        {this.login()}
+        {this.logo()}
         {this.emailInput()}
         {this.passwordInput()}
         {this.loginButton()}
@@ -33,7 +33,7 @@ module.exports = React.createClass({
     );
   },
   //LOGO
-  login() {
+  logo() {
     return(
       <Text style={styles.loginText}>eCommerce</Text>
     );
@@ -41,7 +41,7 @@ module.exports = React.createClass({
   //Email Input
   emailInput() {
     return(
-      <TextInput style={styles.textInput} value={this.state.username} placeholder="  Email Address">
+      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Email Address">
       </TextInput>
     );
   },
@@ -63,19 +63,26 @@ module.exports = React.createClass({
   //Link To Signup
   linkToSignUp() {
     return(
-      <Text style={styles.linkToBrowse}>Sign Up!</Text>
+      <TouchableHighlight>
+        <Text style={styles.linkToBrowse}>Sign Up!</Text>
+      </TouchableHighlight>
     );
   },
   //Link To ForgotPassword
   linkToForgotPassword() {
     return(
-      <Text style={styles.linkToBrowse}>Forgot Password</Text>
+      <TouchableHighlight>
+        <Text style={styles.linkToBrowse}>Forgot Password</Text>
+      </TouchableHighlight>
     );
   },
+  //On Signup Press
   //Link To Browse
   linkToBrowse() {
     return(
-      <Text style={styles.linkToBrowse}>Just Browse</Text>
+      <TouchableHighlight>
+        <Text style={styles.linkToBrowse}>Just Browse</Text>
+      </TouchableHighlight>
     );
   }
 });
