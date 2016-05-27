@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 class eCommerce extends Component {
+  //Setting The State
   constructor(props) {
     super(props);
     this.state = {
@@ -22,23 +23,29 @@ class eCommerce extends Component {
       errorMessage: '',
     };
   }
-
+  //Rendering The Components
   render() {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.textInput} value='' placeholder="Email Address">
-        </TextInput>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.loginText}>
+          Log Into React eCommerce
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        {this.emailInput()}
+        {this.passwordInput()}
       </View>
+    );
+  }
+  //Email Input
+  emailInput() {
+    return(
+      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Email Address">
+      </TextInput>
+    );
+  }
+  passwordInput() {
+    return(
+      <TextInput style={styles.textInput} value={this.state.email} placeholder="  Password">
+      </TextInput>
     );
   }
 }
@@ -48,14 +55,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#3b5998',
+  },
+  loginText: {
+    fontSize: 22,
+    margin: 10
   },
   textInput: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
     margin: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: 'white'
   },
   welcome: {
     fontSize: 20,
