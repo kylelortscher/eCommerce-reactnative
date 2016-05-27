@@ -45,6 +45,7 @@ module.exports = React.createClass({
       <TextInput
       style={styles.textInput}
       value={this.state.email}
+      keyboardType="url"
       onChangeText={(text) => this.setState({email: text})}
       placeholder="  Email Address">
       </TextInput>
